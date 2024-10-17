@@ -85,7 +85,11 @@ function updateLoadMoreButton() {
         };
         loadMoreButton.style.display = 'block';
     } else {
-        loadMoreButton.style.display = 'none';
+        loadMoreButton.textContent = '沒有更多商品';
+        loadMoreButton.onclick = null; // 移除點擊事件
+        loadMoreButton.classList.remove('btn-primary');
+        loadMoreButton.classList.add('btn-secondary');
+        loadMoreButton.style.display = 'block';
     }
 }
 
