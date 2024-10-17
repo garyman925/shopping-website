@@ -1,9 +1,9 @@
 // 商品數據
 const products = [
-    { id: 1, name: '商品 1', price: 100, image: 'product1.jpg' },
-    { id: 2, name: '商品 2', price: 200, image: 'product2.jpg' },
-    { id: 3, name: '商品 3', price: 300, image: 'product3.jpg' },
-    { id: 4, name: '商品 4', price: 400, image: 'product4.jpg' },
+    { id: 1, name: '商品 1', price: 100, image: 'image/demo-product.jpg', description: '這是商品 1 的描述。' },
+    { id: 2, name: '商品 2', price: 200, image: 'image/demo-product.jpg', description: '這是商品 2 的描述。' },
+    { id: 3, name: '商品 3', price: 300, image: 'image/demo-product.jpg', description: '這是商品 3 的描述。' },
+    { id: 4, name: '商品 4', price: 400, image: 'image/demo-product.jpg', description: '這是商品 4 的描述。' },
 ];
 
 // 購物車
@@ -14,12 +14,20 @@ function displayProducts() {
     const productsContainer = document.getElementById('products');
     products.forEach(product => {
         const productElement = document.createElement('div');
-        productElement.classList.add('product');
+        productElement.classList.add('col-md-3', 'mb-4');
         productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>價格: $${product.price}</p>
-            <button onclick="addToCart(${product.id})">加入購物車</button>
+            <a href="product.html?id=${product.id}" class="product-link">
+                <div class="card">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text"><i class="fas fa-tag me-2"></i>價格: $${product.price}</p>
+                        <button class="btn btn-add-to-cart" onclick="addToCart(${product.id}); event.preventDefault();">
+                            <i class="fas fa-cart-plus me-2"></i>加入購物車
+                        </button>
+                    </div>
+                </div>
+            </a>
         `;
         productsContainer.appendChild(productElement);
     });
@@ -32,7 +40,7 @@ function addToCart(productId) {
     updateCartCount();
 }
 
-// 更新購物車數���
+// 更新購物車數量
 function updateCartCount() {
     const cartCount = document.getElementById('cart-count');
     cartCount.textContent = cart.length;

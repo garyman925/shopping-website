@@ -55,3 +55,66 @@ button {
 button:hover {
     background-color: #45a049;
 }
+
+/* 可以添加自定義樣式來覆蓋或補充 Bootstrap 的樣式 */
+#cart {
+    cursor: pointer;
+}
+
+#cart-count {
+    margin-right: 0.5rem;
+}
+
+/* 添加以下樣式 */
+.card-img-top {
+    width: 100%;
+    height: 200px; /* 保持固定高度 */
+    object-fit: contain; /* 改為 contain 以確保整個圖片可見且不變形 */
+    background-color: #f8f9fa; /* 添加背景色，以便在圖片不夠大時能看到 */
+}
+
+/* 修改 .card 樣式 */
+.card {
+    border: none; /* 移除邊框 */
+    box-shadow: none; /* 移除陰影 */
+}
+
+/* 移除卡片懸停效果 */
+.card:hover {
+    transform: none; /* 移除放大效果 */
+    box-shadow: none; /* 保持無陰影 */
+}
+
+.product-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-link:hover {
+    text-decoration: none;
+}
+
+/* 修改加入購物車按鈕樣式 */
+.btn-add-to-cart {
+    width: 100%;
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* 調整卡片內容的間距 */
+.card-body {
+    padding: 1rem;
+}
+
+/* 調整按鈕和價格之間的間距 */
+.card-text {
+    margin-bottom: 1rem;
+}
