@@ -8,6 +8,12 @@ const products = [
     { id: 2, name: '商品 2', price: 200, image: 'image/demo-product.jpg', description: '這是商品 2 的詳細描述。' },
     { id: 3, name: '商品 3', price: 300, image: 'image/demo-product.jpg', description: '這是商品 3 的詳細描述。' },
     { id: 4, name: '商品 4', price: 400, image: 'image/demo-product.jpg', description: '這是商品 4 的詳細描述。' },
+    { id: 5, name: '商品 5', price: 500, image: 'image/demo-product.jpg', description: '這是商品 5 的詳細描述。' },
+    { id: 6, name: '商品 6', price: 600, image: 'image/demo-product.jpg', description: '這是商品 6 的詳細描述。' },
+    { id: 7, name: '商品 7', price: 700, image: 'image/demo-product.jpg', description: '這是商品 7 的詳細描述。' },
+    { id: 8, name: '商品 8', price: 800, image: 'image/demo-product.jpg', description: '這是商品 8 的詳細描述。' },
+    { id: 9, name: '商品 9', price: 900, image: 'image/demo-product.jpg', description: '這是商品 9 的詳細描述。' },
+    { id: 10, name: '商品 10', price: 1000, image: 'image/demo-product.jpg', description: '這是商品 10 的詳細描述。' },
 ];
 
 // 顯示商品詳情
