@@ -4,16 +4,16 @@ const productId = parseInt(urlParams.get('id'));
 
 // 商品數據（這裡應該從服務器獲取，但為了示例，我們使用硬編碼的數據）
 const products = [
-    { id: 1, name: '商品 1', price: 100, image: 'image/demo-product.jpg', description: '這是商品 1 的詳細描述。' },
-    { id: 2, name: '商品 2', price: 200, image: 'image/demo-product.jpg', description: '這是商品 2 的詳細描述。' },
-    { id: 3, name: '商品 3', price: 300, image: 'image/demo-product.jpg', description: '這是商品 3 的詳細描述。' },
-    { id: 4, name: '商品 4', price: 400, image: 'image/demo-product.jpg', description: '這是商品 4 的詳細描述。' },
-    { id: 5, name: '商品 5', price: 500, image: 'image/demo-product.jpg', description: '這是商品 5 的詳細描述。' },
-    { id: 6, name: '商品 6', price: 600, image: 'image/demo-product.jpg', description: '這是商品 6 的詳細描述。' },
-    { id: 7, name: '商品 7', price: 700, image: 'image/demo-product.jpg', description: '這是商品 7 的詳細描述。' },
-    { id: 8, name: '商品 8', price: 800, image: 'image/demo-product.jpg', description: '這是商品 8 的詳細描述。' },
-    { id: 9, name: '商品 9', price: 900, image: 'image/demo-product.jpg', description: '這是商品 9 的詳細描述。' },
-    { id: 10, name: '商品 10', price: 1000, image: 'image/demo-product.jpg', description: '這是商品 10 的詳細描述。' },
+    { id: 1, name: '商品 1', price: 100, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 1 的詳細描述。' },
+    { id: 2, name: '商品 2', price: 200, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 2 的詳細描述。' },
+    { id: 3, name: '商品 3', price: 300, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 3 的詳細描述。' },
+    { id: 4, name: '商品 4', price: 400, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 4 的詳細描述。' },
+    { id: 5, name: '商品 5', price: 500, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是��品 5 的詳細描述。' },
+    { id: 6, name: '商品 6', price: 600, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 6 的詳細描述。' },
+    { id: 7, name: '商品 7', price: 700, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 7 的詳細描述。' },
+    { id: 8, name: '商品 8', price: 800, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 8 的詳細描述。' },
+    { id: 9, name: '商品 9', price: 900, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 9 的詳細描述。' },
+    { id: 10, name: '商品 10', price: 1000, images: ['image/demo-product.jpg', 'image/demo-product.jpg', 'image/demo-product-3.jpg'], description: '這是商品 10 的詳細描述。' },
 ];
 
 // 顯示商品詳情
@@ -31,7 +31,16 @@ function displayProductDetails() {
     productDetails.innerHTML = `
         <div class="row">
             <div class="col-md-6">
-                <img src="${product.image}" class="img-fluid" alt="${product.name}">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        ${product.images.map(image => `
+                            <div class="swiper-slide">
+                                <img src="${image}" class="img-fluid" alt="${product.name}">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
             <div class="col-md-6">
                 <h2>${product.name}</h2>
@@ -43,6 +52,22 @@ function displayProductDetails() {
             </div>
         </div>
     `;
+
+    // 初始化 Swiper
+    new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        // 添加以下設置
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+    });
 }
 
 // 添加商品到購物車（這裡應該與主頁面的購物車同步，但為了簡單起見，我們只更新計數）

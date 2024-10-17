@@ -173,3 +173,32 @@ footer {
     font-size: 1.5rem; /* 調整大小以適應您的設計 */
     font-weight: 400; /* Telex 字體只有 400 重量 */
 }
+
+/* 在文件末尾添加以下樣式 */
+.swiper-container {
+    width: 100%;
+    height: 400px; /* 設置一個固定高度 */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 確保整個圖片可見 */
+}
+
+.swiper-pagination {
+    position: relative;
+    bottom: 0;
+    margin-top: 10px;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #007bff;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
